@@ -14,7 +14,3 @@ development:
 test:
   <<: *default
   database: storymori_test
-
-production:
-  <<: *default
-  database: storymori_production
