@@ -14,4 +14,7 @@
 #
 
 class Page < ApplicationRecord
+  # association
+
+  # methods
 end

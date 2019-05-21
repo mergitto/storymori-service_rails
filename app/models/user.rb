@@ -11,4 +11,7 @@
 #
 
 class User < ApplicationRecord
+  # association
+
+  # methods
 end
