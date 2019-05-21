@@ -8,7 +8,11 @@ module Api
       story = Story.new(title: story_params['title'], summary: story_params['text'])
 
       if story.save
-        render json: { validation: {}, story_id: story.id, page_id: 1 }
+        story.page.new(name: story_params['title'], text: story_params['text'])
+        if story.page.save
+          render json: { validation: {}, story_id: story.id, page_id: story.page.id }
+        end
+        render json: { validtion: {} }
       else
         render json: { validtion: {} }
       end
