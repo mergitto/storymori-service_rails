@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api, default: { format: :json } do
+    get '/stories' => 'stories#index'
+    post '/stories' => 'stories#create'
+
+    get '/stories/:story_id/pages/:page_id' => 'pages#index'
+    post '/stories/:story_id/pages/:parent_id/next' => 'pages#create'
+  end
 end
