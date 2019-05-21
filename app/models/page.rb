@@ -18,6 +18,5 @@ class Page < ApplicationRecord
 
   # validates
   validates :story_id, presence: true
-
   # methods
 end
