@@ -10,14 +10,12 @@ module Api
 
     def create
       page = Page.new(
-        story_id: page_params['story_id'],
-        parent_id: page_params['parent_id'],
-        name: page_params[:page]['name'],
-        text: page_params[:page]['text'],
+        story_id: page_params[:story_id],
+        parent_id: page_params[:parent_id],
+        name: page_params[:page][:name],
+        text: page_params[:page][:text]
       )
-      if page.save
-        render json: page
-      end
+      render json: page if page.save
     end
 
     private
