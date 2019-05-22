@@ -21,7 +21,9 @@ class Page < ApplicationRecord
   validates :story_id, presence: true
 
   # scope
-  scope :next_page, ->(page_id) { Page.find_by(parent_id: page_id) }
 
   # methods
+  def self.next_page(page_id)
+    where(parent_id: page_id)
+  end
 end
