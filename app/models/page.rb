@@ -18,6 +18,7 @@ class Page < ApplicationRecord
   belongs_to :story
 
   # validates
+  validates :name, presence: true
   validates :story_id, presence: true
 
   # scope

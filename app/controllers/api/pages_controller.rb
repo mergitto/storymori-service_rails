@@ -15,10 +15,19 @@ module Api
         name: page_params[:page][:name],
         text: page_params[:page][:text]
       )
-      render json: page if page.save
+      if page.valid?
+        page.save
+        render json: page
+      else
+        render_error_status(page.errors)
+      end
     end
 
     private
+
+    def render_error_status(error)
+      render json: { errors: error }, status: 400
+    end
 
     def page_params
       params.permit(:story_id, :page_id, :parent_id, page: [:name, :text])
