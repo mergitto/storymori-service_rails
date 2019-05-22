@@ -1,7 +1,10 @@
 module Api
   class StoriesController < ApplicationController
     def index
-      render json: Story.all
+      render json: Story
+                      .joins(:pages)
+                      .merge(Page.where(parent_id: nil))
+                      .select('stories.id, stories.title, pages.id as parentId')
     end
 
     def create
@@ -10,11 +13,10 @@ module Api
       if story.save
         page = story.pages.build(name: story_params['title'], text: story_params['text'])
         if page.save
-          render json: { validation: {}, story_id: story.id, page_id: page.id }
+          render json: { storyId: story.id, pageId: page.id }
         end
-        render json: { validtion: {} }
       else
-        render json: { validtion: {} }
+        render json: {}
       end
     end
 
