@@ -15,6 +15,7 @@
 
 class Page < ApplicationRecord
   # association
+  belongs_to :story
 
   # validates
   validates :story_id, presence: true
