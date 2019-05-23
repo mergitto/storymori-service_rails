@@ -14,4 +14,10 @@
 #
 
 class Page < ApplicationRecord
+  # association
+
+  # validates
+  validates :story_id, presence: true
+
+  # methods
 end

@@ -11,4 +11,10 @@
 #
 
 class User < ApplicationRecord
+  # association
+
+  # validates
+  validates :name, presence: true
+
+  # methods
 end

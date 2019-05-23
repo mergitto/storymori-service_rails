@@ -12,4 +12,8 @@
 #
 
 class Story < ApplicationRecord
+  # association
+  has_many :pages
+
+  # methods
 end
