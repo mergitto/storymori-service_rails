@@ -9,9 +9,10 @@ gem 'rails', '~> 5.2.3'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-
 # Use environment file
 gem 'dotenv-rails' # .envを読み込めるようにする
+# Add annotation
+gem 'annotate'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
