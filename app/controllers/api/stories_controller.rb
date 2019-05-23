@@ -9,13 +9,13 @@ module Api
 
     def create
       story = Story.new(title: story_params['title'], summary: story_params['text'])
+      page = story.pages.build(name: story_params['title'], text: story_params['text'])
 
       ActiveRecord::Base.transaction do
         story.save!
-        page = story.pages.build(name: story_params['title'], text: story_params['text'])
         page.save!
-        render json: { storyId: story.id, pageId: page.id }
       end
+      render json: { storyId: story.id, pageId: page.id }
       rescue => e
         render_error_status(e)
     end
@@ -23,7 +23,7 @@ module Api
     private
 
     def render_error_status(error)
-      render json: { errors: error }, status: 400
+      render json: { errors: error }, status: 422
     end
 
     def story_params

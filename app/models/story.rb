@@ -15,5 +15,8 @@ class Story < ApplicationRecord
   # association
   has_many :pages
 
+  # validate
+  validates :title, length: { maximum: 10 }, presence: true
+
   # methods
 end

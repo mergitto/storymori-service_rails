@@ -17,9 +17,8 @@ module Api
         name: page_params[:page][:name],
         text: page_params[:page][:text]
       )
-      if page.valid?
-        page.save
-        render json: page
+      if page.save
+        render json: page.to_json
       else
         render_error_status(page.errors)
       end
