@@ -17,7 +17,7 @@ module Api
       )
       if page.valid?
         page.save
-        render json: page
+        render json: page.to_json
       else
         render_error_status(page.errors)
       end

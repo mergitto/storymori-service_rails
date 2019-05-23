@@ -12,7 +12,7 @@ module Api
 
       ActiveRecord::Base.transaction do
         story.save!
-        page = story.pagesuild(name: story_params['title'], text: story_params['text'])
+        page = story.pages.build(name: story_params['title'], text: story_params['text'])
         page.save!
         render json: { storyId: story.id, pageId: page.id }
       end
