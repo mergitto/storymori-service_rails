@@ -5,9 +5,9 @@ RSpec.describe Story, type: :model do
     @story = build(:story)
   end
 
-  it "the truth" do
+  it 'correct data' do
     expect(@story.id).to eq(1)
-    expect(@story.title).to eq("Story Test 1")
-    expect(@story.summary).to eq("Story Test Summary")
+    expect(@story.title).to eq('Story Test 1')
+    expect(@story.summary).to eq('Story Test Summary')
   end
 end

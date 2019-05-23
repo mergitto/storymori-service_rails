@@ -5,10 +5,10 @@ RSpec.describe Page, type: :model do
     @page = build(:page)
   end
 
-  it "the truth" do
+  it 'correct data' do
     expect(@page.id).to eq(1)
-    expect(@page.name).to eq("Hiro")
-    expect(@page.text).to eq("Test1")
+    expect(@page.name).to eq('Hiro')
+    expect(@page.text).to eq('Test1')
     expect(@page.story_id).to eq(1)
     expect(@page.parent_id).to eq(nil)
   end
