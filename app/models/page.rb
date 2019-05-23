@@ -19,7 +19,6 @@ class Page < ApplicationRecord
 
   # validates
   validates :name, presence: true
-  validates :story_id, presence: true
 
   # scope
 
