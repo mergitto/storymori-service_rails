@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem "factory_bot_rails"
+  gem 'database_rewinder'
 end
 
 group :development do

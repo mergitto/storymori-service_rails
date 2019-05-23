@@ -1,10 +1,12 @@
 module Api
   class PagesController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
+
     def index
       page = Page
                 .select(:id, :name, :text)
                 .where(id: page_params['page_id'], story_id: page_params['story_id'])
-                .first
+                .first!
       render json: { id: page.id, name: page.name, text: page.text, children: Page.next_page(page.id) }
     end
 
@@ -24,9 +26,12 @@ module Api
     end
 
     private
+    def render_404
+      render json: {}, status: 404
+    end
 
     def render_error_status(error)
-      render json: { errors: error }, status: 400
+      render json: { errors: error }, status: 422
     end
 
     def page_params
