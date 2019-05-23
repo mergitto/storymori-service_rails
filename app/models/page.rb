@@ -15,9 +15,15 @@
 
 class Page < ApplicationRecord
   # association
+  belongs_to :story
 
   # validates
-  validates :story_id, presence: true
+  validates :name, presence: true
+
+  # scope
 
   # methods
+  def self.next_page(page_id)
+    where(parent_id: page_id)
+  end
 end
