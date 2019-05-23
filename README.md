@@ -1,6 +1,12 @@
 # README
 Storymoriのサーバーサイド実装
 
+## DBの設定
+```
+cp .env.sample .env
+```
+`.env`の中身を自分のDBに合わせて修正する
+
 * Ruby version
 ```
 2.6.2
@@ -10,7 +16,6 @@ Storymoriのサーバーサイド実装
 ```
 5.2.3
 ```
-
 
 ## 実装計画
 ### Api
