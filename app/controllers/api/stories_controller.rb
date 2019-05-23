@@ -23,7 +23,7 @@ module Api
     private
 
     def render_error_status(error)
-      render json: { errors: error }, status: 400
+      render json: { errors: error }, status: 422
     end
 
     def story_params
