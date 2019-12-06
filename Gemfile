@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 # Use mysql2 as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use environment file
 gem 'dotenv-rails' # .envを読み込めるようにする
 # Add annotation
